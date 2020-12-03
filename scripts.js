@@ -53,37 +53,9 @@ function init() {
 
     /*** Event listeners and functions ***/
 
-    /* This first one establishes a named function and then calls it from the event listener below. */
+    /* TODO: Add ability to change palettes */
 
-    // Select "random" new palette and change name and colors
-    function changePalette() {
-        let randomIndex;
-
-        // Pop up alert only if it's the first time clicking the button
-        if (currentPalette.name === "") {
-            window.confirm("Let's get rid of this boring, monochromatic look and add some pizzazz!");
-        }
-
-        // Pick new palette and validate it's not the same as the last one
-        do {
-            randomIndex = Math.floor(Math.random() * palettes.length);
-            currentPalette = palettes[randomIndex];
-        } while (paletteName.innerHTML === currentPalette.name) 
-        console.log(`Color palette is now ${currentPalette.name}.`);
-
-        // Now modify everything on the page
-        header.style.backgroundColor = currentPalette.colors[0];
-        coloredText.style.color = currentPalette.colors[4];
-        paletteName.innerHTML = currentPalette.name;
-        for (let i=0; i < 5; i++) {
-            colorBlocks[i].style.backgroundColor = currentPalette.colors[i];
-            colorCodes[i].innerHTML = currentPalette.colors[i];
-        }
-
-    }
     // Call function from event listener
-    button.addEventListener("click", changePalette);
-
 
     /* These two just have anonymous functions built in. */
 
